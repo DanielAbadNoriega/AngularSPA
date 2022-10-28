@@ -1,0 +1,30 @@
+<div class="container fadeIn">
+  <h1>Heroes</h1>
+  <hr>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let heroe of heroes; let i = index">
+      <div class="card">
+        <div>
+          <!-- Una opción para la carga de las imagenes en el src -->
+          <!-- <img src={{heroe.img}} class="card-img-top" alt={{heroe.classHeroe}}> -->
+
+          <!-- Segunda opcion -->
+          <!-- Con los [] indicamos que lo maneje angular -->
+          <img [src]="heroe.img" class="card-img-top" [alt]="heroe.classHeroe">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{heroe.classHeroe}}</h5>
+          <hr>
+          <p class="card-text">{{ heroe.description}}</p>
+
+          <button (click)="verHeroe(i)" type="button" class="btn btn-dark text-white">Ver más...</button>
+
+
+          <!-- IMPORTANTE: hay que añadir / para que sepa que es desde la página actual -->
+          <!-- <a [routerLink]="['/heroe', i]" class="btn btn-dark text-white">Ver más...</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
